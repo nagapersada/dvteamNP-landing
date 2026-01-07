@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>CardName - Professional Profile</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#050505">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="CardName">
+    <link rel="apple-touch-icon" href="logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="bg-overlay"></div>
+
+    <div class="card-wrapper">
+        <div class="glass-card">
+            <div class="profile-section">
+                <div class="img-border">
+                    <img id="member-photo" src="logo.png" alt="Profile" onerror="this.src='logo.png'">
+                </div>
+                <div class="identity">
+                    <h1 id="member-name">DV TEAM NP</h1>
+                    <div id="member-rank" class="rank-container"></div>
+                    <div class="badge"><i class="fas fa-shield-alt"></i> Official Partner Tim DVNP</div>
+                </div>
+            </div>
+
+            <div class="bio-section">
+                <p class="quote">"Membangun aset masa depan bersama ekosistem bisnis yang teruji dan komunitas yang solid."</p>
+            </div>
+
+            <div class="actions">
+                <a id="cta-wa" href="#" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Hubungi Saya
+                </a>
+                <button onclick="shareProfile()" class="btn btn-outline">
+                    <i class="fas fa-share-nodes"></i> Bagikan Profil
+                </button>
+            </div>
+
+            <div class="info-grid">
+                <a href="https://youtube.com/shorts/xyl014k6-Ro" target="_blank" class="info-item">
+                    <i class="fas fa-users"></i><span>Mentor Tim</span>
+                </a>
+                
+                <div onclick="openOpalp()" class="info-item">
+                    <i class="fas fa-chart-line"></i><span>Strategi OPALP</span>
+                </div>
+
+                <a href="landing.html" onclick="this.href='landing.html' + window.location.search" class="info-item">
+                    <i class="fas fa-gem"></i><span>Bisnis Digital</span>
+                </a>
+            </div>
+
+            <div class="footer">
+                <p>&copy; 2025 Divi Naga Persada. <br>Excellence in Unity.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">Link Profil Disalin!</div>
+
+    <div id="app-modal" class="modal-overlay">
+        <div class="modal-header">
+            <button onclick="closeOpalp()" class="btn-close">
+                <i class="fas fa-arrow-left"></i> Tutup
+            </button>
+            <span>Materi Strategi</span>
+        </div>
+        <div class="iframe-container">
+            <iframe id="content-frame" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
+    </script>
+</body>
+</html>
