@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DV Team | Bertumbuh & Berdampak</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-main: #020617;
+      --bg-card: #0f172a;
+      --gold: #facc15;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #020617, #0b1120);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h1, h2, h3 { color: white; }
+    h1 span, h2 span { color: var(--gold); }
+    p { color: var(--text-muted); }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px 100px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      margin: 6px;
+      transition: .3s;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: #020617;
+    }
+    .btn-outline {
+      border: 1px solid var(--gold);
+      color: var(--gold);
+    }
+
+    section { margin: 100px 0; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 30px;
+    }
+    .card {
+      background: var(--bg-card);
+      padding: 30px;
+      border-radius: 14px;
+      border: 1px solid #1f2937;
+    }
+    .card h3 { color: var(--gold); }
+
+    .mentor {
+      background: linear-gradient(135deg, #020617, #111827);
+      border-radius: 18px;
+      padding: 50px 30px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: .9rem;
+      border-top: 1px solid #1f2937;
+      padding: 40px 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Dari Tekanan Finansial<br><span>Menuju Kebebasan & Kebermanfaatan</span></h1>
+    <p>
+      DV Team adalah komunitas bertumbuh secara income dan bergerak nyata
+      untuk kemanusiaan melalui sistem duplikasi yang sederhana.
+    </p>
+    <a href="#daftar" class="btn btn-primary">Gabung Sekarang</a>
+    <a id="waLinkTop" href="#" class="btn btn-outline">Chat Mentor</a>
+  </div>
+
+  <!-- WHY -->
+  <section>
+    <h2>Mengapa <span>DV Team</span>?</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Sistem</h3>
+        <p>Bukan mengandalkan bakat, tapi sistem yang bisa diikuti siapa saja.</p>
+      </div>
+      <div class="card">
+        <h3>Pendampingan</h3>
+        <p>Setiap anggota dibimbing, bukan dilepas sendirian.</p>
+      </div>
+      <div class="card">
+        <h3>Makna</h3>
+        <p>Bertumbuh finansial sambil memberi dampak nyata bagi sesama.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section>
+    <h2>Bagaimana Cara Kerjanya?</h2>
+    <div class="grid">
+      <div class="card"><h3>1. Bergabung</h3><p>Masuk ke DV Team.</p></div>
+      <div class="card"><h3>2. Dapat Link</h3><p>Link pribadi untuk duplikasi.</p></div>
+      <div class="card"><h3>3. Bertumbuh</h3><p>Sistem berjalan, mentor mendampingi.</p></div>
+    </div>
+  </section>
+
+  <!-- MENTOR -->
+  <section class="mentor">
+    <h2>Mentor Anda</h2>
+    <h3 id="mentorName">Jaka Rasyidin</h3>
+    <p id="mentorDesc">
+      Pendamping Resmi DV Team<br>
+      Fokus sistem, pertumbuhan, dan dampak kemanusiaan.
+    </p>
+    <a id="waLinkBottom" href="#" class="btn btn-primary">Chat via WhatsApp</a>
+  </section>
+
+  <!-- CTA -->
+  <section id="daftar" class="hero">
+    <h2>Siap Melangkah?</h2>
+    <p>Langkah kecil hari ini dapat membuka masa depan yang berbeda.</p>
+    <a id="formLink" href="#" class="btn btn-primary">Isi Form Pendaftaran</a>
+  </section>
+
+  <footer>
+    © 2026 DV Team · Bertumbuh dengan Makna
+  </footer>
+
+</div>
+
+<!-- REFERRAL SCRIPT -->
+<script>
+  const mentors = {
+    jaka: {
+      name: "Jaka Rasyidin",
+      wa: "6281234567890"
+    },
+    default: {
+      name: "Jaka Rasyidin",
+      wa: "6281234567890"
+    }
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get("ref") || "default";
+  const mentor = mentors[ref] || mentors.default;
+
+  document.getElementById("mentorName").innerText = mentor.name;
+
+  const waLink = `https://wa.me/${mentor.wa}?text=Halo%20saya%20tertarik%20bergabung%20dengan%20DV%20Team`;
+  document.getElementById("waLinkTop").href = waLink;
+  document.getElementById("waLinkBottom").href = waLink;
+
+  document.getElementById("formLink").href =
+    `https://forms.gle/ISI_FORM_KAMU?ref=${ref}`;
+</script>
+
+</body>
+</html>
