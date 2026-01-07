@@ -1,355 +1,84 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DV Team NP | Professional Ecosystem</title>
-  <meta name="description" content="Membangun aset masa depan bersama ekosistem bisnis yang teruji dan komunitas yang solid.">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
-    :root {
-      --bg-dark: #050505;
-      --glass: rgba(20, 20, 20, 0.7);
-      --border: rgba(255, 255, 255, 0.1);
-      --gold: #d4af37;
-      --gold-gradient: linear-gradient(135deg, #d4af37, #8a6e2f);
-      --text-main: #ffffff;
-      --text-muted: #a3a3a3;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>CardName - Professional Profile</title>
     
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+    <link rel="manifest" href="manifest.json">
+    
+    <meta name="theme-color" content="#050505">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="CardName">
+    <link rel="apple-touch-icon" href="logo.png">
 
-    /* BACKGROUND GLOW EFFECT */
-    body::before {
-      content: '';
-      position: fixed;
-      top: -20%; left: -10%;
-      width: 50%; height: 50%;
-      background: radial-gradient(circle, rgba(212, 175, 55, 0.15), transparent 70%);
-      z-index: -1;
-      filter: blur(80px);
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 0 20px;
-    }
-
-    /* TYPOGRAPHY */
-    h1, h2, h3 {
-      font-family: 'Cinzel', serif;
-      color: #fff;
-      line-height: 1.2;
-    }
-
-    h1 span, h2 span, h3 span {
-      background: var(--gold-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    p { color: var(--text-muted); margin-bottom: 20px; }
-
-    /* BUTTONS */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 30px;
-      border-radius: 50px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--gold-gradient);
-      color: #000;
-      box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--gold);
-      color: var(--gold);
-    }
-
-    .btn-outline:hover {
-      background: rgba(212, 175, 55, 0.1);
-      color: #fff;
-    }
-
-    /* HERO SECTION */
-    .hero {
-      text-align: center;
-      padding: 120px 20px 80px;
-      animation: fadeIn 1s ease-out;
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      margin-bottom: 20px;
-      text-shadow: 0 0 20px rgba(0,0,0,0.8);
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto 40px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    /* CARDS & SECTIONS */
-    section { padding: 80px 0; }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 50px;
-      font-size: 2rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid var(--border);
-      padding: 30px;
-      border-radius: 20px;
-      transition: transform 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
-
-    .card:hover { transform: translateY(-5px); border-color: rgba(212, 175, 55, 0.3); }
-
-    .card i {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      background: var(--gold-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .card h3 { font-size: 1.2rem; margin-bottom: 15px; font-family: 'Montserrat', sans-serif; font-weight: 700; }
-
-    /* MENTOR SECTION */
-    .mentor-box {
-      background: linear-gradient(145deg, #111, #050505);
-      border: 1px solid var(--gold);
-      border-radius: 24px;
-      padding: 50px 30px;
-      text-align: center;
-      box-shadow: 0 0 40px rgba(212, 175, 55, 0.1);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .mentor-avatar {
-      width: 120px; height: 120px;
-      margin: 0 auto 20px;
-      border-radius: 50%;
-      border: 3px solid var(--gold);
-      padding: 3px;
-    }
-    .mentor-avatar img {
-      width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
-      background: #000;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      border-top: 1px solid var(--border);
-      font-size: 0.8rem;
-      color: #555;
-    }
-
-    /* ANIMATION */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 600px) {
-      .hero { padding-top: 100px; }
-      .btn { width: 100%; justify-content: center; }
-    }
-  </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <div class="container">
+    <div class="bg-overlay"></div>
 
-    <div class="hero">
-      <div class="badge" style="color: var(--gold); margin-bottom: 10px; font-size: 0.8rem; letter-spacing: 2px;">OFFICIAL PARTNER</div>
-      <h1>Membangun Aset <br><span>Masa Depan</span></h1>
-      <p>
-        Selamat datang di ekosistem <strong>DV TEAM NP</strong>. <br>
-        Kami menggabungkan kekuatan <strong>Bisnis Digital</strong>, sistem automasi, dan komunitas yang solid untuk percepatan income Anda.
-      </p>
-      <div class="hero-buttons">
-        <a id="waTop" href="#" class="btn btn-primary">
-          <i class="fab fa-whatsapp"></i> Gabung Sekarang
-        </a>
-        <a href="#solusi" class="btn btn-outline">
-          <i class="fas fa-info-circle"></i> Pelajari Sistem
-        </a>
-      </div>
+    <div class="card-wrapper">
+        <div class="glass-card">
+            <div class="profile-section">
+                <div class="img-border">
+                    <img id="member-photo" src="logo.png" alt="Profile" onerror="this.src='logo.png'">
+                </div>
+                <div class="identity">
+                    <h1 id="member-name">DV TEAM NP</h1>
+                    
+                    <div id="member-rank" class="rank-container"></div>
+
+                    <div class="badge"><i class="fas fa-shield-alt"></i> Official Partner Tim DVNP</div>
+                </div>
+            </div>
+
+            <div class="bio-section">
+                <p class="quote">"Membangun aset masa depan bersama ekosistem bisnis yang teruji dan komunitas yang solid."</p>
+            </div>
+
+            <div class="actions">
+                <a id="cta-wa" href="#" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Hubungi Saya
+                </a>
+                <button onclick="shareProfile()" class="btn btn-outline">
+                    <i class="fas fa-share-nodes"></i> Bagikan Profil
+                </button>
+            </div>
+
+            <div class="info-grid">
+                <a href="https://youtube.com/shorts/xyl014k6-Ro" target="_blank" class="info-item">
+                    <i class="fas fa-users"></i><span>Mentor Tim</span>
+                </a>
+                <a href="https://nagapersada.github.io/OPALPDVTEAM/" target="_blank" class="info-item">
+                    <i class="fas fa-chart-line"></i><span>Strategi OPALP</span>
+                </a>
+                <a href="https://youtu.be/1NycUVBmpvI" target="_blank" class="info-item">
+                    <i class="fas fa-gem"></i><span>Bisnis Digital</span>
+                </a>
+            </div>
+
+            <div class="footer">
+                <p>&copy; 2025 Divi Naga Persada. <br>Excellence in Unity.</p>
+            </div>
+        </div>
     </div>
 
-    <section>
-      <h2 class="section-title">Tantangan <span>Era Digital</span></h2>
-      <div class="grid">
-        <div class="card">
-          <i class="fas fa-wallet"></i>
-          <h3>Income Stagnan</h3>
-          <p>Bekerja keras bertahun-tahun tapi tabungan tidak bertambah signifikan.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-clock"></i>
-          <h3>Waktu Terbatas</h3>
-          <p>Ingin bisnis sampingan tapi tidak punya waktu untuk mengurus operasional yang ribet.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-network-wired"></i>
-          <h3>Gaptek & Bingung</h3>
-          <p>Tertarik dunia digital tapi bingung harus mulai dari mana dan tidak ada mentor.</p>
-        </div>
-      </div>
-    </section>
+    <div id="toast" class="toast">Link Profil Disalin!</div>
 
-    <section id="solusi">
-      <h2 class="section-title">Solusi: <span>Ekosistem DV NP</span></h2>
-      <div class="grid">
-        <div class="card">
-          <i class="fas fa-mobile-alt"></i>
-          <h3>Smart System</h3>
-          <p>Kami sediakan Alat Bantu (Aplikasi PWA) seperti ini untuk Anda. Biarkan sistem yang menjelaskan bisnisnya.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-users"></i>
-          <h3>Full Mentoring</h3>
-          <p>Tidak dibiarkan jalan sendiri. Ada tim support dan strategi OPALP yang siap diduplikasi.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-chart-line"></i>
-          <h3>Percepatan Income</h3>
-          <p>Marketing plan yang adil, transparan, dan berpotensi memberikan passive income jangka panjang.</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="mentor-box">
-        <div class="mentor-avatar">
-          <img id="mentor-img" src="logo.png" alt="Mentor" onerror="this.src='logo.png'">
-        </div>
-        <h2>Siap Membimbing <br><span>Kesuksesan Anda</span></h2>
-        <h3 id="mentorName" style="color: #fff; margin-top: 10px;">DV TEAM NP</h3>
-        <p style="margin: 20px 0;">
-          "Saya akan tunjukkan bagaimana mengubah HP Anda menjadi mesin penghasilan dengan cara yang elegan dan profesional."
-        </p>
-        <a id="waBottom" href="#" class="btn btn-primary" style="width: 100%;">
-          <i class="fab fa-whatsapp"></i> Chat Mentor Saya
-        </a>
-      </div>
-    </section>
-
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Divi Naga Persada. <br>Excellence in Unity.</p>
-  </footer>
-
-  <script>
-    // DATABASE MEMBER (Sesuaikan dengan data tim Anda)
-    const members = {
-      'deka': {
-        name: "Deka Sonjaya",
-        photo: "foto-deka.jpg", // Pastikan file foto ini ada
-        wa: "6285524444037"
-      },
-      // Tambahkan member lain di sini
-      'admin': {
-        name: "Admin DV NP",
-        photo: "logo.png",
-        wa: "6285524444037"
-      }
-    };
-
-    // DATA DEFAULT
-    const defaultData = {
-      name: "DV TEAM NP",
-      photo: "logo.png",
-      wa: "6285524444037"
-    };
-
-    function loadData() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const refCode = urlParams.get('ref');
-      
-      // Ambil data member atau default
-      let data = members[refCode] || defaultData;
-
-      // Inject Data ke Halaman
-      document.getElementById('mentorName').textContent = data.name;
-      document.getElementById('mentor-img').src = data.photo;
-      
-      // Setup Link WhatsApp
-      const message = `Halo Kak ${data.name}, saya sudah pelajari Landing Page DV Team. Saya mau info cara gabungnya.`;
-      const waLink = `https://wa.me/${data.wa}?text=${encodeURIComponent(message)}`;
-      
-      document.getElementById('waTop').href = waLink;
-      document.getElementById('waBottom').href = waLink;
-    }
-
-    window.onload = loadData;
-  </script>
-
+    <script src="script.js"></script>
+    
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
 </body>
 </html>
